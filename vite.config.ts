@@ -7,12 +7,12 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  build: {
-    outDir: resolve(__dirname, 'public/assets'),
-    emptyOutDir: true,
-    manifest: true,
-    rollupOptions: {
-        input: './src/main.ts'
-    },
-  },
+//   build: {
+//     outDir: resolve(__dirname, 'dist2'),
+//     emptyOutDir: true,
+//     manifest: true,
+//     rollupOptions: {
+//         input: './index.html'
+//     },
+//   },
 })
