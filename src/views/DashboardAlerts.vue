@@ -83,49 +83,60 @@ function dismissAlert() {
 
 <template>
     <LayoutDashboard>
+        <div class="uk-child-width-1-1" uk-grid>
+            <div>
+                <UFCardBox title="Dynamic alert">
+                    <button class="uk-button uk-button-primary uk-button-small" @click="successAlert()">Success</button>
+                    <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" @click="errorAlert()">Error</button>
+                    <button class="uk-button uk-button-default uk-button-small uk-margin-small-left" @click="dismissAlert()">Clear</button>
+                    <AlertContainer v-if="dynamicAlert" :alert="dynamicAlert" />
+                </UFCardBox>
+            </div>
 
-        <h2>Dynamic alert</h2>
-        <button class="uk-button uk-button-primary uk-button-small" @click="successAlert()">Success</button>
-        <button class="uk-button uk-button-danger uk-button-small uk-margin-small-left" @click="errorAlert()">Error</button>
-        <button class="uk-button uk-button-default uk-button-small uk-margin-small-left" @click="dismissAlert()">Clear</button>
-        <AlertContainer v-if="dynamicAlert" :alert="dynamicAlert" />
+            <div>
+                <UFCardBox title="Dynamic alert Collection">
+                    <div class="uk-button-group">
+                        <button class="uk-button uk-button-default uk-button-small" @click="removeAlert()">-</button>
+                        <button class="uk-button uk-button-default uk-button-small" @click="deleteAlerts()">Clear all</button>
+                        <button class="uk-button uk-button-default uk-button-small" @click="addAlert()">+</button>
+                    </div>
+                    <template v-for="alert in alerts" :key="alert.id">
+                        <AlertContainer :alert="alert" />
+                    </template>
+                </UFCardBox>
+            </div>
+            
+            <div>
+                <UFCardBox title="Alerts objects">
+                    <AlertContainer :alert="myAlert" />
+                    <AlertContainer :alert="{ title: 'AlertContainer' }" />
+                    <AlertContainer :alert="{ title: 'AlertContainer', description: 'With Description' }" />
+                    <AlertContainer
+                        :alert="{ title: 'AlertContainer', description: 'With Description and style', style: 'Danger' }" />
+                    <AlertContainer
+                        :alert="{ title: 'AlertContainer', description: 'With Description and style (object)', style: AlertStyle.Danger }" />
+                    <AlertContainer
+                        :alert="{ title: 'AlertContainer', description: 'With Description and close button', style: 'Success', closeBtn: true }" />
+                    <AlertContainer :alert="{ title: 'Alert description as slot' }">
+                        <font-awesome-icon icon="triangle-exclamation" />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        <font-awesome-icon icon="triangle-exclamation" />
+                    </AlertContainer>
+                    <AlertContainer :alert="{ title: 'Alert with both description', description: 'Description not used' }">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    </AlertContainer>
+                    <AlertContainer
+                        :alert="{ title: 'Close button action', description: 'Lorem Ipsum', style: AlertStyle.Danger, closeBtn: true }"
+                        @close="alertClosed()" />
+                </UFCardBox>
+            </div>
 
-        <h2>Dynamic alert Collection</h2>
-        <div class="uk-button-group">
-            <button class="uk-button uk-button-default uk-button-small" @click="removeAlert()">-</button>
-            <button class="uk-button uk-button-default uk-button-small" @click="deleteAlerts()">Clear all</button>
-            <button class="uk-button uk-button-default uk-button-small" @click="addAlert()">+</button>
+            <div>
+                <UFCardBox title="Global Component">
+                    <UFAlertContainer
+                        :alert="{ title: 'UFAlertContainer', description: 'This alert is created using the global component registration' }" />
+                </UFCardBox>
+            </div>
         </div>
-        <template v-for="alert in alerts" :key="alert.id">
-            <AlertContainer :alert="alert" />
-        </template>
-        <hr />
-
-        <h2>Alerts objects</h2>
-        <AlertContainer :alert="myAlert" />
-        <AlertContainer :alert="{ title: 'AlertContainer' }" />
-        <AlertContainer :alert="{ title: 'AlertContainer', description: 'With Description' }" />
-        <AlertContainer
-            :alert="{ title: 'AlertContainer', description: 'With Description and style', style: 'Danger' }" />
-        <AlertContainer
-            :alert="{ title: 'AlertContainer', description: 'With Description and style (object)', style: AlertStyle.Danger }" />
-        <AlertContainer
-            :alert="{ title: 'AlertContainer', description: 'With Description and close button', style: 'Success', closeBtn: true }" />
-        <AlertContainer :alert="{ title: 'Alert description as slot' }">
-            <font-awesome-icon icon="triangle-exclamation" />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            <font-awesome-icon icon="triangle-exclamation" />
-        </AlertContainer>
-        <AlertContainer :alert="{ title: 'Alert with both description', description: 'Description not used' }">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        </AlertContainer>
-        <AlertContainer
-            :alert="{ title: 'Close button action', description: 'Lorem Ipsum', style: AlertStyle.Danger, closeBtn: true }"
-            @close="alertClosed()" />
-        <hr />
-
-        <h2>Global Component</h2>
-        <UFAlertContainer
-            :alert="{ title: 'UFAlertContainer', description: 'This alert is created using the global component registration' }" />
     </LayoutDashboard>
 </template>
