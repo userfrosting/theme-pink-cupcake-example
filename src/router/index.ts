@@ -22,18 +22,18 @@ const router = createRouter({
                     component: () => import('../views/DashboardTable.vue')
                 },
                 {
-                    path: 'alerts',
-                    name: 'dashboard.alerts',
-                    component: () => import('../views/DashboardAlerts.vue')
-                },
-                {
                     path: 'template',
-                    name: 'dashboard.template',
+                    name: 'dashboard.components',
                     children: [
                         {
+                            path: 'alerts',
+                            name: 'dashboard.components.alerts',
+                            component: () => import('../views/DashboardAlerts.vue')
+                        },
+                        {
                             path: 'test',
-                            name: 'dashboard.template.test',
-                            component: () => import('../views/DashboardTemplateTest.vue')
+                            name: 'dashboard.components.cards',
+                            component: () => import('../views/DashboardComponentsCards.vue')
                         }
                     ]
                 }
