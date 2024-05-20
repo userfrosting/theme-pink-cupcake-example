@@ -6,7 +6,8 @@ import LayoutDashboard from '../layouts/LayoutDashboard.vue'
     <LayoutDashboard>
         <div class="uk-child-width-1-4" uk-grid>
             <div class="uk-width-1-1">
-                <UFCardBox title="Lorem ipsum">
+                <!-- Card without title -->
+                <UFCardBox>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus
                     magna. In hac habitasse platea dictumst quisque sagittis purus. Ac felis donec
