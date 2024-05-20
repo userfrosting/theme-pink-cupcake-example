@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@userfrosting/theme-pink-cupcake": "file:../userfrosting/theme-pink-cupcake",
+    "@userfrosting/theme-pink-cupcake": "file:../theme-pink-cupcake",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
