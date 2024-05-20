@@ -22,7 +22,7 @@ const router = createRouter({
                     component: () => import('../views/DashboardTable.vue')
                 },
                 {
-                    path: 'template',
+                    path: 'components',
                     name: 'dashboard.components',
                     children: [
                         {
@@ -31,7 +31,7 @@ const router = createRouter({
                             component: () => import('../views/DashboardAlerts.vue')
                         },
                         {
-                            path: 'test',
+                            path: 'cards',
                             name: 'dashboard.components.cards',
                             component: () => import('../views/DashboardComponentsCards.vue')
                         }
