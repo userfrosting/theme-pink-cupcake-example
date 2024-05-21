@@ -1,5 +1,5 @@
 {
-    "name": "vue-project",
+    "name": "@userfrosting/theme-pink-cupcake-example",
     "version": "0.0.0",
     "private": true,
     "type": "module",
@@ -11,7 +11,7 @@
         "format": "prettier --write src/"
     },
     "dependencies": {
-        "@userfrosting/theme-pink-cupcake": "file:../theme-pink-cupcake",
+        "@userfrosting/theme-pink-cupcake": "^0.1.0",
         "vue": "^3.4.21",
         "vue-router": "^4.3.0"
     },
