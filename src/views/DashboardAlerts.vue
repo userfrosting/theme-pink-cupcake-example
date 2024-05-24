@@ -3,39 +3,84 @@ import { reactive, ref } from 'vue'
 import LayoutDashboard from '../layouts/LayoutDashboard.vue'
 import { type AlertInterface, AlertStyle } from '@userfrosting/theme-pink-cupcake/types'
 import { AlertContainer } from '@userfrosting/theme-pink-cupcake/components'
+import AlertsDisplay from '../components/AlertsDisplay.vue'
 
 // Array container for alerts collection
-const alerts: Array<AlertInterface> = reactive([])
+const alerts: Array<AlertInterface> = reactive([
+    { title: 'Default alert #1', description: 'Lorem Ipsum', style: AlertStyle.Primary },
+    { title: 'Default alert #2', description: 'Lorem Ipsum', style: AlertStyle.Warning }
+])
 
-// Dynamic alert
+// Dynamic alert (not in array)
 const dynamicAlert = ref<AlertInterface>()
 
+// Const for later
+const Lorem: string =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus magna. In hac habitasse platea dictumst quisque sagittis purus. Ac felis donec et odio pellentesque diam volutpat'
+
 // Normal use
-alerts.push({ title: 'Primary (default)', description: 'Lorem Ipsum', style: AlertStyle.Primary })
-alerts.push({ title: 'Success', description: 'Lorem Ipsum', style: AlertStyle.Success })
-alerts.push({ title: 'Warning', description: 'Lorem Ipsum', style: AlertStyle.Warning })
-alerts.push({ title: 'Danger', description: 'Lorem Ipsum', style: AlertStyle.Danger })
+const normalAlerts: Array<AlertInterface> = [
+    {
+        title: 'Primary (default)',
+        description: 'Lorem Ipsum',
+        style: AlertStyle.Primary,
+        closeBtn: true
+    },
+    { title: 'Success', description: 'Lorem Ipsum', style: AlertStyle.Success, closeBtn: true },
+    { title: 'Warning', description: 'Lorem Ipsum', style: AlertStyle.Warning, closeBtn: true },
+    { title: 'Danger', description: 'Lorem Ipsum', style: AlertStyle.Danger, closeBtn: true }
+]
+
+// No Title
+const noTitleAlerts: Array<AlertInterface> = [
+    { description: 'Lorem Ipsum', style: AlertStyle.Primary },
+    { description: 'Lorem Ipsum', style: AlertStyle.Success },
+    { description: 'Lorem Ipsum', style: AlertStyle.Warning },
+    { description: 'Lorem Ipsum', style: AlertStyle.Danger }
+]
+
+// No Title + Close
+const noTitleCloseAlerts: Array<AlertInterface> = [
+    { description: 'Lorem Ipsum', style: AlertStyle.Primary, closeBtn: true },
+    { description: 'Lorem Ipsum', style: AlertStyle.Success, closeBtn: true },
+    { description: 'Lorem Ipsum', style: AlertStyle.Warning, closeBtn: true },
+    { description: 'Lorem Ipsum', style: AlertStyle.Danger, closeBtn: true }
+]
+
+// No icon
+const noIconAlerts: Array<AlertInterface> = [
+    { title: 'Primary', description: 'Lorem Ipsum', style: AlertStyle.Primary, hideIcon: true },
+    { title: 'Success', description: 'Lorem Ipsum', style: AlertStyle.Success, hideIcon: true },
+    { title: 'Warning', description: 'Lorem Ipsum', style: AlertStyle.Warning, hideIcon: true },
+    { title: 'Danger', description: 'Lorem Ipsum', style: AlertStyle.Danger, hideIcon: true }
+]
 
 // String style
-alerts.push({ title: 'String Primary', description: 'Lorem Ipsum', style: 'Primary' })
-alerts.push({ title: 'String Success', description: 'Lorem Ipsum', style: 'Success' })
-alerts.push({ title: 'String Warning', description: 'Lorem Ipsum', style: 'Warning' })
-alerts.push({ title: 'String Danger', description: 'Lorem Ipsum', style: 'Danger' })
+const styleAsStringAlerts: Array<AlertInterface> = [
+    { title: 'String Primary', description: 'Lorem Ipsum', style: 'Primary' },
+    { title: 'String Success', description: 'Lorem Ipsum', style: 'Success' },
+    { title: 'String Warning', description: 'Lorem Ipsum', style: 'Warning' },
+    { title: 'String Danger', description: 'Lorem Ipsum', style: 'Danger' }
+]
 
-// @ts-ignore This is explicitly wrong for testing
-alerts.push({ title: 'String Default / Non-Exist', description: 'Lorem Ipsum', style: 'Foo' })
+// Long description
+const longDescriptionAlerts: Array<AlertInterface> = [
+    { title: 'Long description', description: Lorem, closeBtn: true },
+    { description: Lorem, closeBtn: true }
+]
 
-// Test each defaults
-alerts.push({ title: 'No Style', description: 'Lorem Ipsum' })
-alerts.push({ title: 'No Description' })
-alerts.push({ description: 'Lorem Ipsum (No Title)' })
-alerts.push({
-    title: 'With Description and close Button',
-    description: 'Lorem Ipsum',
-    closeBtn: true
-})
-alerts.push({ description: 'Alert with close button and no title', closeBtn: true })
-alerts.push({ title: 'Alert with no description, but close button', closeBtn: true })
+const miscAlerts: Array<AlertInterface> = [
+    // @ts-ignore This is explicitly wrong for testing
+    { title: 'String Default / Non-Exist', description: 'Lorem Ipsum', style: 'Foo' },
+
+    // Test each defaults
+    { title: 'No Style', description: 'Lorem Ipsum' },
+    { title: 'No Description' },
+    { description: 'Lorem Ipsum (No Title)' },
+    { title: 'With Description and close Button', description: 'Lorem Ipsum', closeBtn: true },
+    { description: 'Alert with close button and no title', closeBtn: true },
+    { title: 'Alert with no description, but close button', closeBtn: true }
+]
 
 // Simple var for testing
 const myAlert: AlertInterface = {
@@ -145,6 +190,32 @@ function dismissAlert() {
                         <AlertContainer :alert="alert" />
                     </template>
                 </UFCardBox>
+            </div>
+
+            <div>
+                <AlertsDisplay title="Default alerts, with close button" :alerts="normalAlerts" />
+            </div>
+            <div>
+                <AlertsDisplay title="No title, no close button" :alerts="noTitleAlerts" />
+            </div>
+            <div>
+                <AlertsDisplay title="No title, with close button" :alerts="noTitleCloseAlerts" />
+            </div>
+            <div>
+                <AlertsDisplay title="No icons" :alerts="noIconAlerts" />
+            </div>
+            <div>
+                <AlertsDisplay
+                    title="Style as string instead of AlertStyle"
+                    :alerts="styleAsStringAlerts" />
+            </div>
+            <div>
+                <AlertsDisplay
+                    title="Alerts with long descriptions"
+                    :alerts="longDescriptionAlerts" />
+            </div>
+            <div>
+                <AlertsDisplay title="Misc alerts, misc default" :alerts="miscAlerts" />
             </div>
 
             <div>
