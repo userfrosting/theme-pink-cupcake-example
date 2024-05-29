@@ -77,6 +77,7 @@ const miscAlerts: Array<AlertInterface> = [
     { title: 'No Style', description: 'Lorem Ipsum' },
     { title: 'No Description' },
     { description: 'Lorem Ipsum (No Title)' },
+    { title: 'With HTML in description', description: 'Lorem <strong>very</strong> Ipsum' },
     { title: 'With Description and close Button', description: 'Lorem Ipsum', closeBtn: true },
     { description: 'Alert with close button and no title', closeBtn: true },
     { title: 'Alert with no description, but close button', closeBtn: true }
@@ -221,7 +222,7 @@ function dismissAlert() {
             <div>
                 <UFCardBox title="Alerts objects">
                     <AlertContainer :alert="myAlert" />
-                    <AlertContainer :alert="{ title: 'AlertContainer' }" />
+                    <AlertContainer :alert="{ title: 'AlertContainer (with no description)' }" />
                     <AlertContainer
                         :alert="{ title: 'AlertContainer', description: 'With Description' }" />
                     <AlertContainer
@@ -245,7 +246,7 @@ function dismissAlert() {
                         }" />
                     <AlertContainer :alert="{ title: 'Alert description as slot' }">
                         <font-awesome-icon icon="triangle-exclamation" />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit
                         <font-awesome-icon icon="triangle-exclamation" />
                     </AlertContainer>
                     <AlertContainer
