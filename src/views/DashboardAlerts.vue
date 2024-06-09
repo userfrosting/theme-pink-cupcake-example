@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import LayoutDashboard from '../layouts/LayoutDashboard.vue'
 import { type AlertInterface, AlertStyle } from '@userfrosting/theme-pink-cupcake/types'
 import { AlertContainer } from '@userfrosting/theme-pink-cupcake/components'
 import AlertsDisplay from '../components/AlertsDisplay.vue'
@@ -145,138 +144,136 @@ function dismissAlert() {
 </script>
 
 <template>
-    <LayoutDashboard>
-        <div class="uk-child-width-1-1" uk-grid>
-            <div>
-                <UFCardBox title="Dynamic alert">
-                    <button
-                        class="uk-button uk-button-primary uk-button-small"
-                        @click="successAlert()">
-                        Success
-                    </button>
-                    <button
-                        class="uk-button uk-button-danger uk-button-small uk-margin-small-left"
-                        @click="errorAlert()">
-                        Error
-                    </button>
-                    <button
-                        class="uk-button uk-button-default uk-button-small uk-margin-small-left"
-                        @click="dismissAlert()">
-                        Clear
-                    </button>
-                    <AlertContainer v-if="dynamicAlert" :alert="dynamicAlert" />
-                </UFCardBox>
-            </div>
-
-            <div>
-                <UFCardBox title="Dynamic alert Collection">
-                    <div class="uk-button-group">
-                        <button
-                            class="uk-button uk-button-default uk-button-small"
-                            @click="removeAlert()">
-                            -
-                        </button>
-                        <button
-                            class="uk-button uk-button-default uk-button-small"
-                            @click="deleteAlerts()">
-                            Clear all
-                        </button>
-                        <button
-                            class="uk-button uk-button-default uk-button-small"
-                            @click="addAlert()">
-                            +
-                        </button>
-                    </div>
-                    <template v-for="alert in alerts" :key="alert.id">
-                        <AlertContainer :alert="alert" />
-                    </template>
-                </UFCardBox>
-            </div>
-
-            <div>
-                <AlertsDisplay title="Default alerts, with close button" :alerts="normalAlerts" />
-            </div>
-            <div>
-                <AlertsDisplay title="No title, no close button" :alerts="noTitleAlerts" />
-            </div>
-            <div>
-                <AlertsDisplay title="No title, with close button" :alerts="noTitleCloseAlerts" />
-            </div>
-            <div>
-                <AlertsDisplay title="No icons" :alerts="noIconAlerts" />
-            </div>
-            <div>
-                <AlertsDisplay
-                    title="Style as string instead of AlertStyle"
-                    :alerts="styleAsStringAlerts" />
-            </div>
-            <div>
-                <AlertsDisplay
-                    title="Alerts with long descriptions"
-                    :alerts="longDescriptionAlerts" />
-            </div>
-            <div>
-                <AlertsDisplay title="Misc alerts, misc default" :alerts="miscAlerts" />
-            </div>
-
-            <div>
-                <UFCardBox title="Alerts objects">
-                    <AlertContainer :alert="myAlert" />
-                    <AlertContainer :alert="{ title: 'AlertContainer (with no description)' }" />
-                    <AlertContainer
-                        :alert="{ title: 'AlertContainer', description: 'With Description' }" />
-                    <AlertContainer
-                        :alert="{
-                            title: 'AlertContainer',
-                            description: 'With Description and style',
-                            style: 'Danger'
-                        }" />
-                    <AlertContainer
-                        :alert="{
-                            title: 'AlertContainer',
-                            description: 'With Description and style (object)',
-                            style: AlertStyle.Danger
-                        }" />
-                    <AlertContainer
-                        :alert="{
-                            title: 'AlertContainer',
-                            description: 'With Description and close button',
-                            style: 'Success',
-                            closeBtn: true
-                        }" />
-                    <AlertContainer :alert="{ title: 'Alert description as slot' }">
-                        <font-awesome-icon icon="triangle-exclamation" />
-                        Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit
-                        <font-awesome-icon icon="triangle-exclamation" />
-                    </AlertContainer>
-                    <AlertContainer
-                        :alert="{
-                            title: 'Alert with both description',
-                            description: 'Description not used'
-                        }">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    </AlertContainer>
-                    <AlertContainer
-                        :alert="{
-                            title: 'Close button action',
-                            description: 'Lorem Ipsum',
-                            style: AlertStyle.Danger,
-                            closeBtn: true
-                        }"
-                        @close="alertClosed()" />
-                </UFCardBox>
-            </div>
-
-            <div>
-                <UFCardBox title="Global Component">
-                    <UFAlertContainer
-                        :alert="{
-                            title: 'UFAlertContainer',
-                            description:
-                                'This alert is created using the global component registration'
-                        }" />
-                </UFCardBox>
-            </div>
+    <div class="uk-child-width-1-1" uk-grid>
+        <div>
+            <UFCardBox title="Dynamic alert">
+                <button
+                    class="uk-button uk-button-primary uk-button-small"
+                    @click="successAlert()">
+                    Success
+                </button>
+                <button
+                    class="uk-button uk-button-danger uk-button-small uk-margin-small-left"
+                    @click="errorAlert()">
+                    Error
+                </button>
+                <button
+                    class="uk-button uk-button-default uk-button-small uk-margin-small-left"
+                    @click="dismissAlert()">
+                    Clear
+                </button>
+                <AlertContainer v-if="dynamicAlert" :alert="dynamicAlert" />
+            </UFCardBox>
         </div>
-    </LayoutDashboard>
+
+        <div>
+            <UFCardBox title="Dynamic alert Collection">
+                <div class="uk-button-group">
+                    <button
+                        class="uk-button uk-button-default uk-button-small"
+                        @click="removeAlert()">
+                        -
+                    </button>
+                    <button
+                        class="uk-button uk-button-default uk-button-small"
+                        @click="deleteAlerts()">
+                        Clear all
+                    </button>
+                    <button
+                        class="uk-button uk-button-default uk-button-small"
+                        @click="addAlert()">
+                        +
+                    </button>
+                </div>
+                <template v-for="alert in alerts" :key="alert.id">
+                    <AlertContainer :alert="alert" />
+                </template>
+            </UFCardBox>
+        </div>
+
+        <div>
+            <AlertsDisplay title="Default alerts, with close button" :alerts="normalAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay title="No title, no close button" :alerts="noTitleAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay title="No title, with close button" :alerts="noTitleCloseAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay title="No icons" :alerts="noIconAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay
+                title="Style as string instead of AlertStyle"
+                :alerts="styleAsStringAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay
+                title="Alerts with long descriptions"
+                :alerts="longDescriptionAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay title="Misc alerts, misc default" :alerts="miscAlerts" />
+        </div>
+
+        <div>
+            <UFCardBox title="Alerts objects">
+                <AlertContainer :alert="myAlert" />
+                <AlertContainer :alert="{ title: 'AlertContainer (with no description)' }" />
+                <AlertContainer
+                    :alert="{ title: 'AlertContainer', description: 'With Description' }" />
+                <AlertContainer
+                    :alert="{
+                        title: 'AlertContainer',
+                        description: 'With Description and style',
+                        style: 'Danger'
+                    }" />
+                <AlertContainer
+                    :alert="{
+                        title: 'AlertContainer',
+                        description: 'With Description and style (object)',
+                        style: AlertStyle.Danger
+                    }" />
+                <AlertContainer
+                    :alert="{
+                        title: 'AlertContainer',
+                        description: 'With Description and close button',
+                        style: 'Success',
+                        closeBtn: true
+                    }" />
+                <AlertContainer :alert="{ title: 'Alert description as slot' }">
+                    <font-awesome-icon icon="triangle-exclamation" />
+                    Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit
+                    <font-awesome-icon icon="triangle-exclamation" />
+                </AlertContainer>
+                <AlertContainer
+                    :alert="{
+                        title: 'Alert with both description',
+                        description: 'Description not used'
+                    }">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </AlertContainer>
+                <AlertContainer
+                    :alert="{
+                        title: 'Close button action',
+                        description: 'Lorem Ipsum',
+                        style: AlertStyle.Danger,
+                        closeBtn: true
+                    }"
+                    @close="alertClosed()" />
+            </UFCardBox>
+        </div>
+
+        <div>
+            <UFCardBox title="Global Component">
+                <UFAlertContainer
+                    :alert="{
+                        title: 'UFAlertContainer',
+                        description:
+                            'This alert is created using the global component registration'
+                    }" />
+            </UFCardBox>
+        </div>
+    </div>
 </template>

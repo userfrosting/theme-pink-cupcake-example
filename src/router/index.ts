@@ -5,11 +5,18 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'page.index',
-            component: () => import('../views/PageIndex.vue')
+            component: () => import('../layouts/LayoutPage.vue'),
+            children: [
+                {
+                    path: '',
+                    name: 'page.index',
+                    component: () => import('../views/PageIndex.vue')
+                }
+            ]
         },
         {
             path: '/dashboard',
+            component: () => import('../layouts/LayoutDashboard.vue'),
             children: [
                 {
                     path: '',

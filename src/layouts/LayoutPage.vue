@@ -9,7 +9,7 @@ import { MainContent } from '@userfrosting/theme-pink-cupcake/components' // Tes
         <NavMenuMain />
     </NavBar>
     <MainContent>
-        <slot></slot>
+        <RouterView />
     </MainContent>
     <UFFooterContent>
         Copyright 2024 - <a href="https://www.userfrosting.com">Created by UserFrosting</a> | Built

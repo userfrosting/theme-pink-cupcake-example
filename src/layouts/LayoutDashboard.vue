@@ -29,7 +29,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
         </UFSideBarDropdown>
     </UFSideBar>
     <UFMainContent>
-        <slot></slot>
+        <RouterView />
     </UFMainContent>
     <UFFooterContent>
         Copyright 2024 - <a href="https://www.userfrosting.com">Created by UserFrosting</a> | Built
