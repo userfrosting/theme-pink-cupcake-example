@@ -29,6 +29,13 @@
             "problemMatcher": []
         },
         {
+            "label": "build-only",
+            "type": "shell",
+            "options": {},
+            "command": "npm run build-only",
+            "problemMatcher": []
+        },
+        {
             "label": "preview",
             "type": "shell",
             "options": {},
