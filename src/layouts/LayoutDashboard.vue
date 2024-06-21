@@ -17,6 +17,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             faIcon="palette">
             <UFSideBarItem :to="{ name: 'dashboard.components.alerts' }" label="Alerts" />
             <UFSideBarItem :to="{ name: 'dashboard.components.cards' }" label="Cards" />
+            <UFSideBarItem :to="{ name: 'dashboard.components.uikit' }" label="UIKit" />
         </UFSideBarDropdown>
         <!-- Dropdown 2 -->
         <UFSideBarDropdown to="/" label="Reports" faIcon="fa-regular fa-file-lines">

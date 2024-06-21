@@ -41,6 +41,11 @@ const router = createRouter({
                             path: 'cards',
                             name: 'dashboard.components.cards',
                             component: () => import('../views/DashboardComponentsCards.vue')
+                        },
+                        {
+                            path: 'uikit',
+                            name: 'dashboard.components.uikit',
+                            component: () => import('../views/DashboardUiKit.vue')
                         }
                     ]
                 }

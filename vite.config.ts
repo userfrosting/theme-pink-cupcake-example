@@ -13,4 +13,13 @@ export default defineConfig({
             allow: ['..']
         },
     },
+    // Fix uikit path issue
+    // @see : https://github.com/uikit/uikit/issues/5024
+    css: {
+        preprocessorOptions: {
+            less: {
+                relativeUrls: "all",
+            },
+        },
+    },
 })
