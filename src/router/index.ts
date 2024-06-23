@@ -4,12 +4,18 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes: [
         {
-            path: '/',
+            path: '',
+            redirect: { name: 'page.index' },
             component: () => import('../layouts/LayoutPage.vue'),
             children: [
                 {
-                    path: '',
+                    path: '/',
                     name: 'page.index',
+                    component: () => import('../views/PageIndex.vue')
+                },
+                {
+                    path: 'about',
+                    name: 'page.about',
                     component: () => import('../views/PageIndex.vue')
                 }
             ]

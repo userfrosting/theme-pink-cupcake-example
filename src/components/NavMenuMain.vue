@@ -13,6 +13,7 @@ function increment() {
         <font-awesome-icon icon="fa-solid fa-house" />
     </UFNavBarItem>
     <UFNavBarItem :to="{ name: 'page.index' }" label="Page" />
+    <UFNavBarItem :to="{ name: 'page.about' }" label="About" />
     <UFNavBarItem :to="{ name: 'dashboard.index' }" label="Dashboard" />
     <UFNavBarDropdown label="Dropdown">
         <NavBarItem to="" label="Label" />
