@@ -23,6 +23,7 @@ function increment() {
         <UFNavBarItem to="/" label="Page" />
         <UFNavBarItem to="/dashboard" label="Dashboard" />
     </UFNavBarDropdown>
+    <UFNavBarLogin />
     <UFNavBarUserCard
         username="John Doe"
         avatar="https://gravatar.com/avatar/?d=mm"

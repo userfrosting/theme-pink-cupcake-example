@@ -19,6 +19,12 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             <UFSideBarItem :to="{ name: 'dashboard.components.cards' }" label="Cards" />
             <UFSideBarItem :to="{ name: 'dashboard.components.uikit' }" label="UIKit" />
         </UFSideBarDropdown>
+        <UFSideBarDropdown
+            :to="{ name: 'dashboard.auth' }"
+            label="Auth"
+            faIcon="user">
+            <UFSideBarItem :to="{ name: 'dashboard.auth.login' }" label="Login" />
+        </UFSideBarDropdown>
         <!-- Dropdown 2 -->
         <UFSideBarDropdown to="/" label="Reports" faIcon="fa-regular fa-file-lines">
             <UFSideBarItem to="" label="Sub item" />

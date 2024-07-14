@@ -54,6 +54,17 @@ const router = createRouter({
                             component: () => import('../views/DashboardUiKit.vue')
                         }
                     ]
+                },
+                {
+                    path: 'auth',
+                    name: 'dashboard.auth',
+                    children: [
+                        {
+                            path: 'login',
+                            name: 'dashboard.auth.login',
+                            component: () => import('../views/DashboardLogin.vue')
+                        }
+                    ]
                 }
             ]
         }
