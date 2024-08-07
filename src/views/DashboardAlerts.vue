@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { type AlertInterface, AlertStyle } from '@userfrosting/theme-pink-cupcake/types'
+import { type AlertInterface, AlertStyle } from '@userfrosting/sprinkle-core/types'
 import { AlertContainer } from '@userfrosting/theme-pink-cupcake/components'
 import AlertsDisplay from '../components/AlertsDisplay.vue'
 

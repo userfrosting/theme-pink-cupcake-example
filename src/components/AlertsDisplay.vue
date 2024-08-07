@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AlertContainer } from '@userfrosting/theme-pink-cupcake/components'
-import { type AlertInterface } from '@userfrosting/theme-pink-cupcake/types'
+import { type AlertInterface } from '@userfrosting/sprinkle-core/types'
 
 defineProps<{
     title: string
