@@ -24,6 +24,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             label="Auth"
             faIcon="user">
             <UFSideBarItem :to="{ name: 'dashboard.auth.login' }" label="Login" />
+            <UFSideBarItem :to="{ name: 'dashboard.auth.register' }" label="Register" />
         </UFSideBarDropdown>
         <!-- Dropdown 2 -->
         <UFSideBarDropdown to="/" label="Reports" faIcon="fa-regular fa-file-lines">
