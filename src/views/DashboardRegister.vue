@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+</script>
+
 <template>
-    <UFPageRegister />
+    <UFPageRegister @goto-login="router.push({ name: 'dashboard.auth.login' })" />
 </template>

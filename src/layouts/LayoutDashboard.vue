@@ -25,6 +25,8 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             faIcon="user">
             <UFSideBarItem :to="{ name: 'dashboard.auth.login' }" label="Login" />
             <UFSideBarItem :to="{ name: 'dashboard.auth.register' }" label="Register" />
+            <UFSideBarItem :to="{ name: 'dashboard.auth.forgot-password' }" label="Forgot Password" />
+            <UFSideBarItem :to="{ name: 'dashboard.auth.resend-verification' }" label="Resend Verification" />
         </UFSideBarDropdown>
         <!-- Dropdown 2 -->
         <UFSideBarDropdown to="/" label="Reports" faIcon="fa-regular fa-file-lines">

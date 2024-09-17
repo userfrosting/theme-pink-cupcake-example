@@ -68,6 +68,16 @@ const router = createRouter({
                             path: 'register',
                             name: 'dashboard.auth.register',
                             component: () => import('../views/DashboardRegister.vue')
+                        },
+                        {
+                            path: 'forgot-password',
+                            name: 'dashboard.auth.forgot-password',
+                            component: () => import('../views/DashboardForgotPassword.vue')
+                        },
+                        {
+                            path: 'resend-verification',
+                            name: 'dashboard.auth.resend-verification',
+                            component: () => import('../views/DashboardResendVerification.vue')
                         }
                     ]
                 }
