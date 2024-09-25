@@ -147,9 +147,7 @@ function dismissAlert() {
     <div class="uk-child-width-1-1" uk-grid>
         <div>
             <UFCardBox title="Dynamic alert">
-                <button
-                    class="uk-button uk-button-primary uk-button-small"
-                    @click="successAlert()">
+                <button class="uk-button uk-button-primary uk-button-small" @click="successAlert()">
                     Success
                 </button>
                 <button
@@ -179,9 +177,7 @@ function dismissAlert() {
                         @click="deleteAlerts()">
                         Clear all
                     </button>
-                    <button
-                        class="uk-button uk-button-default uk-button-small"
-                        @click="addAlert()">
+                    <button class="uk-button uk-button-default uk-button-small" @click="addAlert()">
                         +
                     </button>
                 </div>
@@ -209,9 +205,7 @@ function dismissAlert() {
                 :alerts="styleAsStringAlerts" />
         </div>
         <div>
-            <AlertsDisplay
-                title="Alerts with long descriptions"
-                :alerts="longDescriptionAlerts" />
+            <AlertsDisplay title="Alerts with long descriptions" :alerts="longDescriptionAlerts" />
         </div>
         <div>
             <AlertsDisplay title="Misc alerts, misc default" :alerts="miscAlerts" />
@@ -270,8 +264,7 @@ function dismissAlert() {
                 <UFAlertContainer
                     :alert="{
                         title: 'UFAlertContainer',
-                        description:
-                            'This alert is created using the global component registration'
+                        description: 'This alert is created using the global component registration'
                     }" />
             </UFCardBox>
         </div>
