@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import NavBarItem from '@userfrosting/theme-pink-cupcake/components/NavBar/NavBarItem.vue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const count = ref(0)
 
 function increment() {
@@ -23,7 +25,7 @@ function increment() {
         <UFNavBarItem to="/" label="Page" />
         <UFNavBarItem to="/dashboard" label="Dashboard" />
     </UFNavBarDropdown>
-    <UFNavBarLogin />
+    <UFNavBarLogin @goto-registration="router.push({ name: 'dashboard.auth.register' })" />
     <UFNavBarUserCard
         username="John Doe"
         avatar="https://gravatar.com/avatar/?d=mm"
