@@ -49,6 +49,11 @@ const router = createRouter({
                             component: () => import('../views/DashboardComponentsCards.vue')
                         },
                         {
+                            path: 'infobox',
+                            name: 'dashboard.components.infobox',
+                            component: () => import('../views/DashboardComponentsInfoBox.vue')
+                        },
+                        {
                             path: 'uikit',
                             name: 'dashboard.components.uikit',
                             component: () => import('../views/DashboardUiKit.vue')

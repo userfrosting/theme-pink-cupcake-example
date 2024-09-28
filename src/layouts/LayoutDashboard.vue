@@ -17,6 +17,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             faIcon="palette">
             <UFSideBarItem :to="{ name: 'dashboard.components.alerts' }" label="Alerts" />
             <UFSideBarItem :to="{ name: 'dashboard.components.cards' }" label="Cards" />
+            <UFSideBarItem :to="{ name: 'dashboard.components.infobox' }" label="Info box" />
             <UFSideBarItem :to="{ name: 'dashboard.components.uikit' }" label="UIKit" />
         </UFSideBarDropdown>
         <UFSideBarDropdown :to="{ name: 'dashboard.auth' }" label="Auth" faIcon="user">
