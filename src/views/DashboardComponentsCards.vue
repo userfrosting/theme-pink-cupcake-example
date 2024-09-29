@@ -22,13 +22,48 @@
             <UFCardBox title="Box 1">Lorem ipsum dolor sit amet</UFCardBox>
         </div>
         <div>
-            <UFCardBox title="Box 2">Lorem ipsum dolor sit amet</UFCardBox>
+            <UFCardBox>
+                <template #header>Box 2</template>
+                Lorem ipsum dolor sit amet
+            </UFCardBox>
         </div>
         <div>
-            <UFCardBox title="Box 3">Lorem ipsum dolor sit amet</UFCardBox>
+            <UFCardBox>
+                <template #header>
+                    <font-awesome-icon :icon="['far', 'snowflake']" /> Box 3
+                </template>
+                Lorem ipsum dolor sit amet
+            </UFCardBox>
         </div>
         <div>
-            <UFCardBox title="Box 4">Lorem ipsum dolor sit amet</UFCardBox>
+            <UFCardBox>
+                <template #header>Box 4</template>
+                Lorem ipsum dolor sit amet
+                <template #footer>Footer</template>
+            </UFCardBox>
+        </div>
+    </div>
+
+    <div class="uk-child-width-1-1" uk-grid>
+        <div>
+            <UFCardBoxBig>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus magna.
+            </UFCardBoxBig>
+        </div>
+        <div>
+            <UFCardBoxBig title="Big Box 2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus magna.
+            </UFCardBoxBig>
+        </div>
+        <div>
+            <UFCardBoxBig>
+                <template #header>Big Box 3</template>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus magna.
+                <template #footer>Footer</template>
+            </UFCardBoxBig>
         </div>
     </div>
 </template>
