@@ -3,7 +3,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
 </script>
 
 <template>
-    <UFNavBar title="Pink Cupcake" to="/">
+    <UFNavBar title="Pink Cupcake" :to="{name: 'page.index'}">
         <NavMenuMain />
     </UFNavBar>
     <UFSideBar>

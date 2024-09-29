@@ -2,10 +2,10 @@
     <h3>Info box with FA Icons</h3>
     <div class="uk-grid uk-child-width-1-3" uk-grid>
         <div>
-            <UFInfoBox value="123" label="Users" faIcon="user" />
+            <UFInfoBox value="123" label="Users" faIcon="user" :to="{name: 'page.index'}" />
         </div>
         <div>
-            <UFInfoBox value="4" label="Roles" faIcon="address-card" />
+            <UFInfoBox value="4" label="Roles" faIcon="address-card" :to="{name: 'page.about'}" />
         </div>
         <div>
             <UFInfoBox value="23" label="Groups" faIcon="users" />
