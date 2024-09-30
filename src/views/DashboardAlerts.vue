@@ -144,6 +144,8 @@ function dismissAlert() {
 </script>
 
 <template>
+    <UFHeaderPage title="Alerts" />
+
     <div class="uk-child-width-1-1" uk-grid>
         <div>
             <UFCardBox title="Dynamic alert">

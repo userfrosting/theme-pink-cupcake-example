@@ -1,5 +1,6 @@
 <template>
-    <h3>Info box with FA Icons</h3>
+    <UFHeaderPage title="InfoBox" caption="InfoBoxes with FA Icons" />
+    
     <div class="uk-grid uk-child-width-1-3" uk-grid>
         <div>
             <UFInfoBox value="123" label="Users" faIcon="user" :to="{name: 'page.index'}" />
