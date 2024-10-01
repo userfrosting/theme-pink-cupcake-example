@@ -1,3 +1,8 @@
+<script setup lang="ts">
+// 0 can be interpreted as a number or a boolean. Make sure it's not hidden 
+// because it's interpreted as a boolean.
+const foobar: number = 0
+</script>
 <template>
     <UFHeaderPage title="InfoBox" caption="InfoBoxes with FA Icons" />
     
@@ -32,7 +37,7 @@
             <UFInfoBox label="Users" faIcon="user" />
         </div>
         <div>
-            <UFInfoBox value="4" faIcon="address-card" />
+            <UFInfoBox :value="foobar" faIcon="address-card" />
         </div>
         <div>
             <UFInfoBox value="23" label="Groups" />
