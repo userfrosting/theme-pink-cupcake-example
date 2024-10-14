@@ -4,7 +4,7 @@ import { Severity } from '@userfrosting/sprinkle-core/types'
 
 <template>
     <UFCardBox>
-        <h2>Labels</h2>
+        <h3 class="uk-heading-divider">Labels</h3>
         <div>
             <UFLabel :severity="Severity.Primary">Primary</UFLabel>
         </div>
@@ -27,9 +27,12 @@ import { Severity } from '@userfrosting/sprinkle-core/types'
             <UFLabel :severity="Severity.Info">Info</UFLabel>
         </div>
 
-        <hr />
+        <h3 class="uk-heading-divider">Default</h3>
+        <div>
+            <UFLabel>Default</UFLabel>
+        </div>
 
-        <h2>Labels - String Severity</h2>
+        <h3 class="uk-heading-divider">Severity defined as strings</h3>
         <div>
             <UFLabel severity="Primary">Primary</UFLabel>
         </div>
