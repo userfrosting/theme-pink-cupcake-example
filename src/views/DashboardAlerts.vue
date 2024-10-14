@@ -1,18 +1,78 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { type AlertInterface, AlertStyle } from '@userfrosting/sprinkle-core/types'
-import { AlertContainer } from '@userfrosting/theme-pink-cupcake/components'
+import { type AlertInterface, Severity } from '@userfrosting/sprinkle-core/types'
 import AlertsDisplay from '../components/AlertsDisplay.vue'
 
+/**
+ * Dynamic alert
+ */
+const dynamicAlert = ref<AlertInterface>()
+function successAlert() {
+    dynamicAlert.value = {
+        title: 'Success',
+        description: 'Action was successful !',
+        style: Severity.Success,
+        closeBtn: true
+    }
+}
+function errorAlert() {
+    dynamicAlert.value = {
+        title: 'Error',
+        description: 'Action was not so successful !',
+        style: Severity.Danger,
+        closeBtn: true
+    }
+}
+function dismissAlert() {
+    dynamicAlert.value = undefined
+}
+
+/**
+ * Dynamic alert Collection
+ */
 // Array container for alerts collection
 const alerts: Array<AlertInterface> = reactive([
-    { title: 'Default alert #1', description: 'Lorem Ipsum', style: AlertStyle.Primary },
-    { title: 'Default alert #2', description: 'Lorem Ipsum', style: AlertStyle.Warning }
+    {
+        title: 'Default alert #1',
+        description: 'Lorem Ipsum',
+        style: Severity.Primary,
+        closeBtn: true
+    },
+    {
+        title: 'Default alert #2',
+        description: 'Lorem Ipsum',
+        style: Severity.Warning,
+        closeBtn: true
+    },
+    {
+        title: 'Default alert #3',
+        description: 'Lorem Ipsum',
+        style: Severity.Danger,
+        closeBtn: true
+    }
 ])
+function addAlert() {
+    alerts.push({
+        title: 'Success',
+        description: 'Added alerts',
+        style: Severity.Success,
+        closeBtn: true
+    })
+}
+function removeAlert() {
+    alerts.splice(0, 1)
+}
+// Remove all alerts from the collection
+function deleteAlerts() {
+    alerts.splice(0, alerts.length)
+}
+function removeOneAlert(index: number) {
+    alerts.splice(index, 1)
+}
 
-// Dynamic alert (not in array)
-const dynamicAlert = ref<AlertInterface>()
-
+/**
+ * Other cases
+ */
 // Const for later
 const Lorem: string =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet luctus venenatis lectus magna. In hac habitasse platea dictumst quisque sagittis purus. Ac felis donec et odio pellentesque diam volutpat'
@@ -22,36 +82,59 @@ const normalAlerts: Array<AlertInterface> = [
     {
         title: 'Primary (default)',
         description: 'Lorem Ipsum',
-        style: AlertStyle.Primary,
+        style: Severity.Primary,
         closeBtn: true
     },
-    { title: 'Success', description: 'Lorem Ipsum', style: AlertStyle.Success, closeBtn: true },
-    { title: 'Warning', description: 'Lorem Ipsum', style: AlertStyle.Warning, closeBtn: true },
-    { title: 'Danger', description: 'Lorem Ipsum', style: AlertStyle.Danger, closeBtn: true }
+    { title: 'Success', description: 'Lorem Ipsum', style: Severity.Success, closeBtn: true },
+    { title: 'Warning', description: 'Lorem Ipsum', style: Severity.Warning, closeBtn: true },
+    { title: 'Danger', description: 'Lorem Ipsum', style: Severity.Danger, closeBtn: true },
+    { title: 'Info', description: 'Lorem Ipsum', style: Severity.Info, closeBtn: true },
+    { title: 'Secondary', description: 'Lorem Ipsum', style: Severity.Secondary, closeBtn: true },
+    { title: 'Muted', description: 'Lorem Ipsum', style: Severity.Muted, closeBtn: true }
 ]
 
 // No Title
 const noTitleAlerts: Array<AlertInterface> = [
-    { description: 'Lorem Ipsum', style: AlertStyle.Primary },
-    { description: 'Lorem Ipsum', style: AlertStyle.Success },
-    { description: 'Lorem Ipsum', style: AlertStyle.Warning },
-    { description: 'Lorem Ipsum', style: AlertStyle.Danger }
+    { description: 'Primary - Lorem Ipsum', style: Severity.Primary },
+    { description: 'Success - Lorem Ipsum', style: Severity.Success },
+    { description: 'Warning - Lorem Ipsum', style: Severity.Warning },
+    { description: 'Danger - Lorem Ipsum', style: Severity.Danger },
+    { description: 'Info - Lorem Ipsum', style: Severity.Info },
+    { description: 'Secondary - Lorem Ipsum', style: Severity.Secondary },
+    { description: 'Muted - Lorem Ipsum', style: Severity.Muted }
+]
+
+// No Descriptions
+const noDescriptionAlerts: Array<AlertInterface> = [
+    { title: 'Primary - Lorem Ipsum', style: Severity.Primary },
+    { title: 'Success - Lorem Ipsum', style: Severity.Success },
+    { title: 'Warning - Lorem Ipsum', style: Severity.Warning },
+    { title: 'Danger - Lorem Ipsum', style: Severity.Danger },
+    { title: 'Info - Lorem Ipsum', style: Severity.Info },
+    { title: 'Secondary - Lorem Ipsum', style: Severity.Secondary },
+    { title: 'Muted - Lorem Ipsum', style: Severity.Muted }
 ]
 
 // No Title + Close
 const noTitleCloseAlerts: Array<AlertInterface> = [
-    { description: 'Lorem Ipsum', style: AlertStyle.Primary, closeBtn: true },
-    { description: 'Lorem Ipsum', style: AlertStyle.Success, closeBtn: true },
-    { description: 'Lorem Ipsum', style: AlertStyle.Warning, closeBtn: true },
-    { description: 'Lorem Ipsum', style: AlertStyle.Danger, closeBtn: true }
+    { description: 'Lorem Ipsum', style: Severity.Primary, closeBtn: true },
+    { description: 'Lorem Ipsum', style: Severity.Success, closeBtn: true },
+    { description: 'Lorem Ipsum', style: Severity.Warning, closeBtn: true },
+    { description: 'Lorem Ipsum', style: Severity.Danger, closeBtn: true },
+    { description: 'Lorem Ipsum', style: Severity.Info, closeBtn: true },
+    { description: 'Lorem Ipsum', style: Severity.Secondary, closeBtn: true },
+    { description: 'Lorem Ipsum', style: Severity.Muted, closeBtn: true }
 ]
 
 // No icon
 const noIconAlerts: Array<AlertInterface> = [
-    { title: 'Primary', description: 'Lorem Ipsum', style: AlertStyle.Primary, hideIcon: true },
-    { title: 'Success', description: 'Lorem Ipsum', style: AlertStyle.Success, hideIcon: true },
-    { title: 'Warning', description: 'Lorem Ipsum', style: AlertStyle.Warning, hideIcon: true },
-    { title: 'Danger', description: 'Lorem Ipsum', style: AlertStyle.Danger, hideIcon: true }
+    { title: 'Primary', description: 'Lorem Ipsum', style: Severity.Primary, hideIcon: true },
+    { title: 'Success', description: 'Lorem Ipsum', style: Severity.Success, hideIcon: true },
+    { title: 'Warning', description: 'Lorem Ipsum', style: Severity.Warning, hideIcon: true },
+    { title: 'Danger', description: 'Lorem Ipsum', style: Severity.Danger, hideIcon: true },
+    { title: 'Info', description: 'Lorem Ipsum', style: Severity.Info, hideIcon: true },
+    { title: 'Secondary', description: 'Lorem Ipsum', style: Severity.Secondary, hideIcon: true },
+    { title: 'Muted', description: 'Lorem Ipsum', style: Severity.Muted, hideIcon: true }
 ]
 
 // String style
@@ -59,13 +142,17 @@ const styleAsStringAlerts: Array<AlertInterface> = [
     { title: 'String Primary', description: 'Lorem Ipsum', style: 'Primary' },
     { title: 'String Success', description: 'Lorem Ipsum', style: 'Success' },
     { title: 'String Warning', description: 'Lorem Ipsum', style: 'Warning' },
-    { title: 'String Danger', description: 'Lorem Ipsum', style: 'Danger' }
+    { title: 'String Danger', description: 'Lorem Ipsum', style: 'Danger' },
+    { title: 'String Info', description: 'Lorem Ipsum', style: 'Info' },
+    { title: 'String Secondary', description: 'Lorem Ipsum', style: 'Secondary' },
+    { title: 'String Muted', description: 'Lorem Ipsum', style: 'Muted' }
 ]
 
 // Long description
 const longDescriptionAlerts: Array<AlertInterface> = [
     { title: 'Long description', description: Lorem, closeBtn: true },
-    { description: Lorem, closeBtn: true }
+    { description: Lorem, closeBtn: true },
+    { title: Lorem, closeBtn: true }
 ]
 
 const miscAlerts: Array<AlertInterface> = [
@@ -86,29 +173,7 @@ const miscAlerts: Array<AlertInterface> = [
 const myAlert: AlertInterface = {
     title: 'Alert from Var',
     description: 'This is the description',
-    style: AlertStyle.Warning
-}
-
-/**
- * Reaction for button press
- */
-function addAlert() {
-    alerts.push({
-        title: 'Success',
-        description: 'Added alerts',
-        style: AlertStyle.Success,
-        closeBtn: true
-    })
-}
-function removeAlert() {
-    alerts.splice(0, 1)
-}
-
-/**
- * Remove all alerts from the collection
- */
-function deleteAlerts() {
-    alerts.splice(0, alerts.length)
+    style: Severity.Warning
 }
 
 /**
@@ -116,30 +181,6 @@ function deleteAlerts() {
  */
 function alertClosed() {
     alert('The alert will be closed')
-}
-
-/**
- * Dynamic alert actions
- * N.B.: Such a dynamic alert should not have a close button, as it will remove
- * the html from the DOM. An array to store a collection of alerts if preferred
- * in this case.
- */
-function successAlert() {
-    dynamicAlert.value = {
-        title: 'Success',
-        description: 'Action was successful !',
-        style: AlertStyle.Success
-    }
-}
-function errorAlert() {
-    dynamicAlert.value = {
-        title: 'Error',
-        description: 'Action was not so successful !',
-        style: AlertStyle.Danger
-    }
-}
-function dismissAlert() {
-    dynamicAlert.value = undefined
 }
 </script>
 
@@ -162,7 +203,7 @@ function dismissAlert() {
                     @click="dismissAlert()">
                     Clear
                 </button>
-                <AlertContainer v-if="dynamicAlert" :alert="dynamicAlert" />
+                <UFAlert v-if="dynamicAlert" :alert="dynamicAlert" />
             </UFCardBox>
         </div>
 
@@ -183,14 +224,17 @@ function dismissAlert() {
                         +
                     </button>
                 </div>
-                <template v-for="alert in alerts" :key="alert.id">
-                    <AlertContainer :alert="alert" />
+                <template v-for="(alert, index) in alerts" :key="alert.id">
+                    <UFAlert :alert="alert" @close="removeOneAlert(index)" />
                 </template>
             </UFCardBox>
         </div>
 
         <div>
             <AlertsDisplay title="Default alerts, with close button" :alerts="normalAlerts" />
+        </div>
+        <div>
+            <AlertsDisplay title="No description, no close button" :alerts="noDescriptionAlerts" />
         </div>
         <div>
             <AlertsDisplay title="No title, no close button" :alerts="noTitleAlerts" />
@@ -203,7 +247,7 @@ function dismissAlert() {
         </div>
         <div>
             <AlertsDisplay
-                title="Style as string instead of AlertStyle"
+                title="Style as string instead of Severity"
                 :alerts="styleAsStringAlerts" />
         </div>
         <div>
@@ -215,59 +259,49 @@ function dismissAlert() {
 
         <div>
             <UFCardBox title="Alerts objects">
-                <AlertContainer :alert="myAlert" />
-                <AlertContainer :alert="{ title: 'AlertContainer (with no description)' }" />
-                <AlertContainer
-                    :alert="{ title: 'AlertContainer', description: 'With Description' }" />
-                <AlertContainer
+                <UFAlert :alert="myAlert" />
+                <UFAlert :alert="{ title: 'UFAlert (with no description)' }" />
+                <UFAlert
+                    :alert="{ title: 'UFAlert', description: 'With Description' }" />
+                <UFAlert
                     :alert="{
-                        title: 'AlertContainer',
+                        title: 'UFAlert',
                         description: 'With Description and style',
                         style: 'Danger'
                     }" />
-                <AlertContainer
+                <UFAlert
                     :alert="{
-                        title: 'AlertContainer',
+                        title: 'UFAlert',
                         description: 'With Description and style (object)',
-                        style: AlertStyle.Danger
+                        style: Severity.Danger
                     }" />
-                <AlertContainer
+                <UFAlert
                     :alert="{
-                        title: 'AlertContainer',
+                        title: 'UFAlert',
                         description: 'With Description and close button',
                         style: 'Success',
                         closeBtn: true
                     }" />
-                <AlertContainer :alert="{ title: 'Alert description as slot' }">
+                <UFAlert :alert="{ title: 'Alert description as slot' }">
                     <font-awesome-icon icon="triangle-exclamation" />
                     Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit
                     <font-awesome-icon icon="triangle-exclamation" />
-                </AlertContainer>
-                <AlertContainer
+                </UFAlert>
+                <UFAlert
                     :alert="{
                         title: 'Alert with both description',
                         description: 'Description not used'
                     }">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                </AlertContainer>
-                <AlertContainer
+                </UFAlert>
+                <UFAlert
                     :alert="{
                         title: 'Close button action',
                         description: 'Lorem Ipsum',
-                        style: AlertStyle.Danger,
+                        style: Severity.Danger,
                         closeBtn: true
                     }"
                     @close="alertClosed()" />
-            </UFCardBox>
-        </div>
-
-        <div>
-            <UFCardBox title="Global Component">
-                <UFAlertContainer
-                    :alert="{
-                        title: 'UFAlertContainer',
-                        description: 'This alert is created using the global component registration'
-                    }" />
             </UFCardBox>
         </div>
     </div>

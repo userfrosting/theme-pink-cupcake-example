@@ -3,7 +3,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
 </script>
 
 <template>
-    <UFNavBar title="Pink Cupcake" :to="{name: 'page.index'}">
+    <UFNavBar title="Pink Cupcake" :to="{ name: 'page.index' }">
         <NavMenuMain />
     </UFNavBar>
     <UFSideBar>
@@ -16,6 +16,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             label="Components"
             faIcon="palette">
             <UFSideBarItem :to="{ name: 'dashboard.components.alerts' }" label="Alerts" />
+            <UFSideBarItem :to="{ name: 'dashboard.components.labels' }" label="Labels" />
             <UFSideBarItem :to="{ name: 'dashboard.components.cards' }" label="Cards" />
             <UFSideBarItem :to="{ name: 'dashboard.components.infobox' }" label="Info box" />
             <UFSideBarItem :to="{ name: 'dashboard.components.uikit' }" label="UIKit" />

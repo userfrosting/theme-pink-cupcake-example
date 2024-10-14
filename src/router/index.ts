@@ -44,6 +44,11 @@ const router = createRouter({
                             component: () => import('../views/DashboardAlerts.vue')
                         },
                         {
+                            path: 'labels',
+                            name: 'dashboard.components.labels',
+                            component: () => import('../views/DashboardLabels.vue')
+                        },
+                        {
                             path: 'cards',
                             name: 'dashboard.components.cards',
                             component: () => import('../views/DashboardComponentsCards.vue')
