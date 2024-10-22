@@ -261,8 +261,7 @@ function alertClosed() {
             <UFCardBox title="Alerts objects">
                 <UFAlert :alert="myAlert" />
                 <UFAlert :alert="{ title: 'UFAlert (with no description)' }" />
-                <UFAlert
-                    :alert="{ title: 'UFAlert', description: 'With Description' }" />
+                <UFAlert :alert="{ title: 'UFAlert', description: 'With Description' }" />
                 <UFAlert
                     :alert="{
                         title: 'UFAlert',

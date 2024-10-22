@@ -44,6 +44,11 @@ const router = createRouter({
                             component: () => import('../views/DashboardAlerts.vue')
                         },
                         {
+                            path: 'font-awesome',
+                            name: 'dashboard.components.fa',
+                            component: () => import('../views/PageFontAwesome.vue')
+                        },
+                        {
                             path: 'labels',
                             name: 'dashboard.components.labels',
                             component: () => import('../views/DashboardLabels.vue')
