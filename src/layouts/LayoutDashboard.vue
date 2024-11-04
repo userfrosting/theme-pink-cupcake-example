@@ -19,6 +19,7 @@ import NavMenuMain from '../components/NavMenuMain.vue'
             <UFSideBarItem :to="{ name: 'dashboard.components.labels' }" label="Labels" />
             <UFSideBarItem :to="{ name: 'dashboard.components.cards' }" label="Cards" />
             <UFSideBarItem :to="{ name: 'dashboard.components.infobox' }" label="Info box" />
+            <UFSideBarItem :to="{ name: 'dashboard.components.modal' }" label="Modals" />
             <UFSideBarItem :to="{ name: 'dashboard.components.uikit' }" label="UIKit" />
             <UFSideBarItem :to="{ name: 'dashboard.components.fa' }" label="Font Awesome" />
         </UFSideBarDropdown>

@@ -12,18 +12,20 @@
         "format": "prettier --write src/"
     },
     "dependencies": {
-        "@userfrosting/theme-pink-cupcake": "git+https://github.com/userfrosting/theme-pink-cupcake.git",
         "@userfrosting/sprinkle-account": "git+https://github.com/userfrosting/sprinkle-account.git#6.0",
+        "@userfrosting/sprinkle-admin": "git+https://github.com/userfrosting/sprinkle-admin.git#6.0",
         "@userfrosting/sprinkle-core": "git+https://github.com/userfrosting/sprinkle-core.git#6.0",
-        "vue": "^3.4.21",
-        "vue-router": "^4.3.0",
+        "@userfrosting/theme-pink-cupcake": "git+https://github.com/userfrosting/theme-pink-cupcake.git",
         "pinia": "^2.1.6",
-        "pinia-plugin-persistedstate": "^3.2.0"
+        "pinia-plugin-persistedstate": "^3.2.0",
+        "vue": "^3.4.21",
+        "vue-router": "^4.3.0"
     },
     "devDependencies": {
         "@rushstack/eslint-patch": "^1.8.0",
         "@tsconfig/node20": "^20.1.4",
         "@types/node": "^20.12.5",
+        "@types/uikit": "^3.14.5",
         "@vitejs/plugin-vue": "^5.0.4",
         "@vue/eslint-config-prettier": "^9.0.0",
         "@vue/eslint-config-typescript": "^13.0.0",
@@ -35,6 +37,7 @@
         "prettier": "^3.2.5",
         "typescript": "~5.4.0",
         "vite": "^5.2.8",
+        "vite-plugin-vue-devtools": "^7.5.4",
         "vue-tsc": "^2.0.11"
     }
 }

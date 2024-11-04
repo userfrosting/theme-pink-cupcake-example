@@ -64,6 +64,11 @@ const router = createRouter({
                             component: () => import('../views/DashboardComponentsInfoBox.vue')
                         },
                         {
+                            path: 'modal',
+                            name: 'dashboard.components.modal',
+                            component: () => import('../views/DashboardModal.vue')
+                        },
+                        {
                             path: 'uikit',
                             name: 'dashboard.components.uikit',
                             component: () => import('../views/DashboardUiKit.vue')
