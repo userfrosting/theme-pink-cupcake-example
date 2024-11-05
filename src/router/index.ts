@@ -69,6 +69,11 @@ const router = createRouter({
                             component: () => import('../views/DashboardModal.vue')
                         },
                         {
+                            path: 'buttons',
+                            name: 'dashboard.components.buttons',
+                            component: () => import('../views/DashboardButtons.vue')
+                        },
+                        {
                             path: 'uikit',
                             name: 'dashboard.components.uikit',
                             component: () => import('../views/DashboardUiKit.vue')
