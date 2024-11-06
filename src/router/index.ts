@@ -68,6 +68,12 @@ const router = createRouter({
                             name: 'dashboard.components.modal',
                             component: () => import('../views/DashboardModal.vue')
                         },
+
+                        {
+                            path: 'notification',
+                            name: 'dashboard.components.notification',
+                            component: () => import('../views/DashboardNotification.vue')
+                        },
                         {
                             path: 'buttons',
                             name: 'dashboard.components.buttons',
