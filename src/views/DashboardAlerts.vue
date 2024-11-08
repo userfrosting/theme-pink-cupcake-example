@@ -193,14 +193,10 @@ function alertClosed() {
                 <button class="uk-button uk-button-primary uk-button-small" @click="successAlert()">
                     Success
                 </button>
-                <button
-                    class="uk-button uk-button-danger uk-button-small uk-margin-small-left"
-                    @click="errorAlert()">
+                <button class="uk-button uk-button-danger uk-button-small" @click="errorAlert()">
                     Error
                 </button>
-                <button
-                    class="uk-button uk-button-default uk-button-small uk-margin-small-left"
-                    @click="dismissAlert()">
+                <button class="uk-button uk-button-default uk-button-small" @click="dismissAlert()">
                     Clear
                 </button>
                 <UFAlert v-if="dynamicAlert" :alert="dynamicAlert" />

@@ -79,4 +79,23 @@ const buttons = [
             </table>
         </UFCardBox>
     </div>
+
+    <div class="uk-margin">
+        <UFCardBox>
+            <p>Display normal (fixed) and group button</p>
+            <p uk-margin>
+                <button class="uk-button uk-button-default">Default</button>
+                <button class="uk-button uk-button-primary">Primary</button>
+                <button class="uk-button uk-button-secondary">Secondary</button>
+            </p>
+            <hr />
+            <div class="uk-margin">
+                <div class="uk-button-group">
+                    <button class="uk-button uk-button-default">Default</button>
+                    <button class="uk-button uk-button-primary">Primary</button>
+                    <button class="uk-button uk-button-secondary">Secondary</button>
+                </div>
+            </div>
+        </UFCardBox>
+    </div>
 </template>
